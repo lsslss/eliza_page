@@ -3,14 +3,14 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 </head>
 <body onload="onRuleLoaded()">
+  <div id="dialogBox" style="width:95%; height:80%; overflow:auto; border:ridge 1px #888888; ">
+>> 您好，我的朋友! 有心事嗎 ?<BR/>  
+  </div>
+  <BR/>
   <div>
    請輸入問題：
    <input id="say" name="say" type="text" value="" size="80" onkeydown="keyin(event)"/> <!-- 按 enter 時呼叫 keyin() 回答 --> 
    <input type="submit" value="送出" onclick="say()"/> <!-- 當送出按鈕按下，就呼叫 say() 函數回答 --> 
-  </div>
-  <BR/>
-  <div id="dialogBox" style="width:95%; height:80%; overflow:auto; border:ridge 1px #888888; ">
->> 您好，我的朋友! 有心事嗎 ?<BR/>  
   </div>
   <script type="text/javascript">  
 /* 以下為本程式回答問題時使用的 Q&A 規則，例如對於以下 Q&A 規則物件
