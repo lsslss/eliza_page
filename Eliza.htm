@@ -78,7 +78,6 @@ var qaList = [
 	}
     function say() { // 當送出鍵按下時，會呼叫這個函數進行回答動作
       append(document.getElementById("say").value); // 先將使用者輸入的問句放到「對話區」顯示。
-	  clrsay();	//清除使用者輸入區。
       answer(); // 然後回答使用者的問題。
     }
     
@@ -101,6 +100,7 @@ var qaList = [
     
     function getAnswer() {
       var say = document.getElementById("say").value; // 取得使用者輸入的問句。
+	  clrsay();
       for (var i in qaList) { // 對於每一個 QA 
        try {
         var qa = qaList[i];
