@@ -11,6 +11,7 @@
    請輸入問題：
    <input id="say" name="say" type="text" value="" size="80" onkeydown="keyin(event)"/> <!-- 按 enter 時呼叫 keyin() 回答 --> 
    <input type="submit" value="送出" onclick="say()"/> <!-- 當送出按鈕按下，就呼叫 say() 函數回答 --> 
+   <input type="button" value="清除" onclick="clrdialgBox()"/> <!-- 當送出按鈕按下，就呼叫 say() 函數回答 --> 
   </div>
   <script type="text/javascript">  
 /* 以下為本程式回答問題時使用的 Q&A 規則，例如對於以下 Q&A 規則物件
@@ -73,9 +74,15 @@ var qaList = [
     }
     
 	function clrsay() {
-	  var saybox=document.getElementById("say");  //取輸入區
+	  var saybox=document.getElementById("say");  //選取輸入區
 	  saybox.value="";	//清除輸入區
 	}
+
+	function clrdialgBox() {
+	  var dlgbox=document.getElementById("dialogBox");  //選取對話區
+	  dlgbox.innerHTML=">> 您好，我的朋友! 有心事嗎 ?<BR/>\n";	//清除對話區
+	}
+
     function say() { // 當送出鍵按下時，會呼叫這個函數進行回答動作
       append(document.getElementById("say").value); // 先將使用者輸入的問句放到「對話區」顯示。
       answer(); // 然後回答使用者的問題。
