@@ -3,6 +3,7 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 </head>
 <body onload="onRuleLoaded()">
+  <audio id="audio1"></audio>
   <div id="dialogBox" style="width:95%; height:80%; overflow:auto; border:ridge 1px #888888; ">
 >> 您好，我的朋友! 有心事嗎 ?<BR/>  
   </div>
@@ -67,6 +68,13 @@ var qaList = [
 { Q:"是阿|是的", A:"甚麼事呢?|我可以幫助你嗎?|我希望我能幫得上忙!"},
 { Q:"", A:"我了解|我能理解|還有問題嗎 ?|請繼續說下去|可以說的更詳細一點嗎?|這樣喔! 我知道!|然後呢? 發生甚麼事?|再來呢? 可以多說一些嗎|接下來呢? |可以多告訴我一些嗎?|多談談有關你的事，好嗎?|想多聊一聊嗎|可否多告訴我一些呢?"}
 ];  
+
+	function playAudio(id, lang, text) {
+		var audio = document.getElementById(id); // 取得 audio 控制項
+		audio.src = "http://translate.google.com/translate_tts?ie=utf-8&tl="+lang+"&q="+text; // 設定語音為 google TTS。
+		audio.addEventListener('ended', function(){ this.currentTime = 0; }, false); // 當播放完畢，強制回到開頭。
+		audio.play(); // 播放語音。
+	}
   
     function random(n) { // 從 0 到 n-1 中選一個亂數
       return Math.floor(Math.random()*n);
@@ -94,7 +102,9 @@ var qaList = [
 
     function answer() { // 回答問題
       setTimeout(function () { // 停頓 1 到 3 秒再回答問題 (因為若回答太快就不像人了，人打字需要時間)
-        append(">> "+getAnswer());
+	    var ans=getAnswer();
+        append(">> "+ans);
+		playAudio('audio1', 'zh', ans);
       }, 1000+random(2000));
     }
     
