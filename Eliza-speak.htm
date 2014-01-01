@@ -4,6 +4,7 @@
 </head>
 <body onload="onRuleLoaded()">
   <audio controls id="audio1"></audio>
+  <div id="showurl"></div>
   <div id="dialogBox" style="width:95%; height:80%; overflow:auto; border:ridge 1px #888888; ">
 >> 您好，我的朋友! 有心事嗎 ?<BR/>  
   </div>
@@ -72,6 +73,7 @@ var qaList = [
 	function playAudio(id, lang, text) {
 		var audio = document.getElementById(id); // 取得 audio 控制項
 		audio.src = "http://translate.google.com/translate_tts?ie=utf-8&tl="+lang+"&q="+encodeURI(text); // 設定語音為 google TTS。
+		getElementById("showurl").innerText=audio.src;
 		audio.autoplay=true;
 		audio.load(); // 重新載入聲音
 		//audio.addEventListener('ended', function(){ this.currentTime = 0; }, false); // 當播放完畢，強制回到開頭。
