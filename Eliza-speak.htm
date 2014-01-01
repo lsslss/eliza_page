@@ -36,7 +36,7 @@ Eliza 就是一個這麼簡單的程式而已。*/
 // Q&A 陣列宣告
 var qaList = [
 { Q:"謝謝", A:"不客氣！"},
-{ Q:"對不起|抱歉|不好意思", A:"別說抱歉 ！|別客氣，儘管說 ！"},
+{ Q:"對不起|抱歉|不好意思", A:"別說抱歉！|別客氣，儘管說！"},
 { Q:"可否|可不可以", A:"你確定想*？"},
 { Q:"我想", A:"你為何想*？"},
 { Q:"我要", A:"你為何要*？"},
@@ -72,8 +72,12 @@ var qaList = [
 	function playAudio(id, lang, text) {
 		var audio = document.getElementById(id); // 取得 audio 控制項
 		audio.src = "http://translate.google.com/translate_tts?ie=utf-8&tl="+lang+"&q="+encodeURI(text); // 設定語音為 google TTS。
-		audio.autoplay=true;
+		audio.autoplay = true;
 		audio.load(); // 重新載入聲音
+<<<<<<< HEAD
+=======
+		//document.getElementById("showurl").value = audio.src;
+>>>>>>> online_debug
 		//audio.addEventListener('ended', function(){ this.currentTime = 0; }, false); // 當播放完畢，強制回到開頭。
 		//audio.play(); // 播放語音。
 	}
